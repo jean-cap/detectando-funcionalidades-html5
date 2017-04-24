@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detecção de Funcionalidades em HTML5</title>
+    <script src="index.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        tr th,
+        tr td {
+            padding: 1em;
+            text-align: center;
+            border: solid 1px #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Detecção de Funcionalidades em HTML5</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Funcionalidade</th>
+                <th>Suporte</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Canvas</td>
+                <td id="canvas"></td>
+            </tr>
+            <tr>
+                <td>Texto Canvas</td>
+                <td id="canvas-text"></td>
+            </tr>
+            <tr>
+                <td>Vídeo</td>
+                <td id="video"></td>
+            </tr>
+            <tr>
+                <td>Vídeo H264</td>
+                <td id="video-h264"></td>
+            </tr>
+            <tr>
+                <td>Vídeo Ogg</td>
+                <td id="video-ogg"></td>
+            </tr>
+            <tr>
+                <td>Vídeo WebM</td>
+                <td id="video-webm"></td>
+            </tr>
+            <tr>
+                <td>Armazenamento Local</td>
+                <td id="localstorage"></td>
+            </tr>
+            <tr>
+                <td>Web Worker</td>
+                <td id="web-worker"></td>
+            </tr>
+            <tr>
+                <td>Aplicações Offline</td>
+                <td id="aplicacoes-offline"></td>
+            </tr>
+            <tr>
+                <td>Geolocalização</td>
+                <td id="geolocation"></td>
+            </tr>
+            <tr>
+                <td>Microdados</td>
+                <td id="microdata"></td>
+            </tr>
+            <tr>
+                <td>Histórico</td>
+                <td id="history"></td>
+            </tr>
+            <tr>
+                <td>Input do tipo Search</td>
+                <td id="input-search"></td>
+            </tr>
+
+            <tr>
+                <td>Input do tipo numérico incremental</td>
+                <td id="input-number"></td>
+            </tr>
+            <tr>
+                <td>Input do tipo Slider</td>
+                <td id="input-range"></td>
+            </tr>
+            <tr>
+                <td>Input do tipo de seleção de cores</td>
+                <td id="input-color"></td>
+            </tr>
+            <tr>
+                <td>Input do tipo telefone</td>
+                <td id="input-tel"></td>
+            </tr>
+            <tr>
+                <td>Input do tipo URL</td>
+                <td id="input-url"></td>
+            </tr>
+            <tr>
+                <td>Input do tipo e-mail</td>
+                <td id="input-email"></td>
+            </tr>
+            <tr>
+                <td>Input do tipo calendário</td>
+                <td id="input-date"></td>
+            </tr>
+            <tr>
+                <td>Input para meses</td>
+                <td id="input-month"></td>
+            </tr>
+            <tr>
+                <td>Input para semanas</td>
+                <td id="input-week"></td>
+            </tr>
+            <tr>
+                <td>Input para horas</td>
+                <td id="input-time"></td>
+            </tr>
+            <tr>
+                <td>Input para precisos e absolutos data+hora</td>
+                <td id="input-datetime"></td>
+            </tr>
+            <tr>
+                <td>Input para datas e horas locais</td>
+                <td id="input-datetime-local"></td>
+            </tr>
+            <tr>
+                <td>Placeholder no input</td>
+                <td id="placeholder"></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        function getSimbolo(valor) {
+            return valor ? '&check;' : '&cross;';
+        }
+        function getProbabilidade(valor) {
+            let probabilidade = 'O vídeo não será executado.';
+            if (valor == 'probably') {
+                probabilidade =  'Provavelmente o vídeo será executado.';
+            }
+            if (valor == 'maybe') {
+                probabilidade = 'Talvez seja possível executar o vídeo.'
+            }
+            return probabilidade;
+        }
+        document.getElementById('canvas').innerHTML = getSimbolo(DF.canvas);
+        document.getElementById('canvas-text').innerHTML = getSimbolo(DF.canvasText);
+        document.getElementById('video').innerHTML = getSimbolo(DF.video);
+        document.getElementById('video-h264').innerHTML = getProbabilidade(DF.videoH264);
+        document.getElementById('video-ogg').innerHTML = getProbabilidade(DF.videoOgg);
+        document.getElementById('video-webm').innerHTML = getProbabilidade(DF.videoWebM);
+        document.getElementById('localstorage').innerHTML = getSimbolo(DF.localStorage);
+        document.getElementById('web-worker').innerHTML = getSimbolo(DF.webWorker);
+        document.getElementById('aplicacoes-offline').innerHTML = getSimbolo(DF.aplicacoesOffline);
+        document.getElementById('geolocation').innerHTML = getSimbolo(DF.geolocation);
+        document.getElementById('microdata').innerHTML = getSimbolo(DF.microdata);
+        document.getElementById('history').innerHTML = getSimbolo(DF.history);
+
+        document.getElementById('input-search').innerHTML = getSimbolo(DF.inputSearch);
+        document.getElementById('input-number').innerHTML = getSimbolo(DF.inputNumber);
+        document.getElementById('input-range').innerHTML = getSimbolo(DF.inputRange);
+        document.getElementById('input-color').innerHTML = getSimbolo(DF.inputColor);
+        document.getElementById('input-tel').innerHTML = getSimbolo(DF.inputTel);
+        document.getElementById('input-url').innerHTML = getSimbolo(DF.inputUrl);
+        document.getElementById('input-email').innerHTML = getSimbolo(DF.inputEmail);
+        document.getElementById('input-date').innerHTML = getSimbolo(DF.inputDate);
+        document.getElementById('input-month').innerHTML = getSimbolo(DF.inputMonth);
+        document.getElementById('input-week').innerHTML = getSimbolo(DF.inputWeek);
+        document.getElementById('input-time').innerHTML = getSimbolo(DF.inputTime);
+        document.getElementById('input-datetime').innerHTML = getSimbolo(DF.inputDateTime);
+        document.getElementById('input-datetime-local').innerHTML = getSimbolo(DF.inputDateTimeLocal);
+        document.getElementById('placeholder').innerHTML = getSimbolo(DF.inputPlaceholder);
+    </script>
+</body>
+
+</html>
